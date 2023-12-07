@@ -21,7 +21,7 @@ public class Words {
 			case "lookLeft": lookLeft(); break;
 			case "inspectWorkbench": inspectWorkbench(); break;
 			case "hammerGained": hammerGained(); break;
-			case "tableSawNO": tableSawNO(); break;
+			case "tableSawNo": tableSawNo(); break;
 		}
 	}
 	
@@ -58,8 +58,10 @@ public class Words {
 	public void inspectWorkbench()
 	{
 		screen.mainTextArea.setText("upon looking closer at the workbench you see that there is 2 tools on the workbench, a hammer, and a huge table saw");
-		screen.compChoice("pick up hammer", "useTableSaw", "", "", "", "");
 		cListen.compEvents("hammerGained", items.tableSaw(), "", "", "", "");
+		screen.compChoice("pick up hammer", "useTableSaw", "", "", "", "");
+		
+		
 	}
 
 
@@ -71,7 +73,7 @@ public class Words {
 		cListen.compEvents("inspectWorkbench", "", "", "", "", "");
 	}
 	
-	public void tableSawNO()
+	public void tableSawNo()
 	{
 		screen.mainTextArea.setText(" you dont have anything you can use on the tablesaw");
 		screen.compChoice(">", "", "", "", "", "");

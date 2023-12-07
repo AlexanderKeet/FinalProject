@@ -8,6 +8,7 @@ public class ChoiceListener implements ActionListener {
 	Screen screen;
 	Game game;
 	Words words;
+	Items items;
 	public String nextEvent1, nextEvent2, nextEvent3, nextEvent4, nextEvent5, nextEvent6;
 	public ChoiceListener(Game game)
 	{
