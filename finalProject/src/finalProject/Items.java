@@ -4,7 +4,7 @@ public class Items {
 	Words words;
 	public boolean haveHammer = false;
 	public boolean haveWood = false;
-	public boolean switchOn = false;
+	public boolean pulledCord = false;
 	
 	public String tableSaw()
 	{
@@ -42,13 +42,13 @@ public class Items {
 	}
 	public String switchTurnedOn()
 	{
-		if(switchOn == true)
+		if(pulledCord == true)
 		{
-			return "you see a fireplace but there is no fire coming from it";
+			return "you see a fireplace but there is no fire coming from it, nothing of use seeems to be in there";
 		}
 		else
 		{
-			return "you see a fireplace, there is an immense amount of heat coming out of it, youre hands feel immensily warm even when youre stadning ten feet away from it";
+			return "you see a fireplace, there is an immense amount of heat coming out of it, youre hands feel immensily warm even when youre stadning ten feet away from it, you feel like there coul be something useful in the fireplace";
 		}
 	}
 

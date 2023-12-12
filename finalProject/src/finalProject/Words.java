@@ -22,6 +22,14 @@ public class Words {
 			case "inspectWorkbench": inspectWorkbench(); break;
 			case "hammerGained": hammerGained(); break;
 			case "tableSawNo": tableSawNo(); break;
+			case "lookRight":lookRight(); break;
+			case "inspectFireplace": inspectFireplace(); break;
+			case "handsInFire": handsInFire(); break;
+			case "thinking": thinking(); break;
+			case "axeNo" : axeNo(); break;
+			case "axeYes": axeYes(); break;
+			case "campfireOut": campfireOut(); break;
+			case "backingUp": backingUp(); break;
 		}
 	}
 	
@@ -90,8 +98,75 @@ public class Words {
 	public void inspectFireplace()
 	{
 		screen.mainTextArea.setText("upon looking closer at da fireplace you see that there is a cord coming out of it");
-		screen.compChoice("put your hands in the fireplace ", "", "", "", "", "");
+		screen.compChoice("put your hands in the fireplace ", "think harder", "", "", "", "");
+		cListen.compEvents("handsInFire", "thinking", "", "", "", "");
+	}
+	
+	public void handsInFire()
+	{
+		screen.mainTextArea.setText("without thinking you put your hands in the fireplace, which is burning hot, your hands burn to crisp for a few seconds before you quickly pull them out, realizing your mistake");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("inspectFireplace", "", "", "", "", "");
+	}
+	
+	public void thinking()
+	{
+		screen.mainTextArea.setText("you decide to take a few secnonds to think and ponder of what to do next, when all of a sudden you realise that the fire might stop if you break the cord");
+		screen.compChoice("destroy the cord", "dont destroy the cord", "", "", "", "");
+		cListen.compEvents("", "inspectFireplace", "", "", "", "");
+	}
+	
+	public void axeNo()
+	{
+		screen.mainTextArea.setText("you pull and tug on the cord but it is to thick. youre going to need something sharp to cut the cord");
+		screen.compChoice("", "", "", "", "", "");
 		cListen.compEvents("", "", "", "", "", "");
 	}
+	
+	public void axeYes()
+	{
+		screen.mainTextArea.setText("you grab your axe and you swing it into the cord SMASH SAMSH SMASH with youre axe and the cord break ");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("campfireOut", "", "", "", "", "");
+	}
+	
+	public void campfireOut()
+	{
+		items.pulledCord = true;
+		screen.mainTextArea.setText("after all that you look over to the campfire and it is off, mustve been electirc you think to yourself \n whatchu gonna do?");
+		screen.compChoice("inspect campfire", "go back", "", "", "", "");
+		cListen.compEvents("inspectCampfire2", "backingUp", "", "", "", "");
+	}
+	
+	public void backingUp()
+	{
+		screen.mainTextArea.setText("you realise its probabaly a good idea to go inspect the campfire because you might find something cool");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("inspectCampfire", "", "", "", "", "");
+	}
+	
+	public void inspectCampfire2()
+	{
+		screen.mainTextArea.setText("you take a closer look at the fireplace tahts off, now the only thing left in it is a bunch of wood,");
+		screen.compChoice("Open up the fire place", "go back", "", "", "", "");
+		cListen.compEvents("openCampfire", "backingUp", "", "", "", "");
+	}
+	
+	public void openCampfire()
+	{
+		screen.mainTextArea.setText("you open up the fireplace you see a bunch of wood in decent condition ready to grab");
+		screen.compChoice("grab the wood ", "", "", "", "", "");
+		cListen.compEvents("woodGained", "", "", "", "", "");
+	}
+	
+	public void woodGained()
+	{
+		items.haveWood = true;
+		screen.mainTextArea.setText("you got wood!!! you put it back in your pocket and continue on");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("cantMove", "", "", "", "", "");
+	}
+	
+
 
 }
