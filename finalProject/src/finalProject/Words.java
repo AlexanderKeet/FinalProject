@@ -58,8 +58,9 @@ public class Words {
 	public void inspectWorkbench()
 	{
 		screen.mainTextArea.setText("upon looking closer at the workbench you see that there is 2 tools on the workbench, a hammer, and a huge table saw");
-		cListen.compEvents(items.pickHammer(), items.tableSaw(), "", "", "", "");
 		screen.compChoice(items.hammerChoice(), "useTableSaw", "", "", "", "");
+		cListen.compEvents(items.pickHammer(), items.tableSaw(), "", "", "", "");
+		
 	}
 
 
@@ -78,6 +79,19 @@ public class Words {
 		screen.compChoice(">", "", "", "", "", "");
 		cListen.compEvents("inspectWorkbench", "", "", "", "", "");
 	}
-
+	
+	public void lookRight()
+	{
+		screen.mainTextArea.setText(items.switchTurnedOn());
+		screen.compChoice("inspect da fireplace", "go back", "", "", "", "");
+		cListen.compEvents("inspectFireplace", "cantMove", "", "", "", "");
+	}
+	
+	public void inspectFireplace()
+	{
+		screen.mainTextArea.setText("upon looking closer at da fireplace you see that there is a cord coming out of it");
+		screen.compChoice("put your hands in the fireplace ", "", "", "", "", "");
+		cListen.compEvents("", "", "", "", "", "");
+	}
 
 }
