@@ -60,14 +60,13 @@ public class Words {
 		screen.mainTextArea.setText("upon looking closer at the workbench you see that there is 2 tools on the workbench, a hammer, and a huge table saw");
 		cListen.compEvents(items.pickHammer(), items.tableSaw(), "", "", "", "");
 		screen.compChoice(items.hammerChoice(), "useTableSaw", "", "", "", "");
-		
-		
 	}
 
 
 	public void hammerGained()
 	{
 		items.haveHammer = true;
+		screen.item1.setText("hammer");
 		screen.mainTextArea.setText("you picked up à hammer! You walk back to inspect the workshop");
 		screen.compChoice(">", "", "", "", "", "");
 		cListen.compEvents("inspectWorkbench", "", "", "", "", "");

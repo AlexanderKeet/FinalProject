@@ -18,7 +18,7 @@ public class Items {
 	}
 	public String pickHammer()
 	{
-		if(haveHammer = true)
+		if(haveHammer == true)
 		{
 			return "cantMove";
 		}
@@ -29,13 +29,13 @@ public class Items {
 	}
 	public String hammerChoice()
 	{
-		if(haveHammer == false)
+		if(haveHammer == true)
 		{
-			return "Pick up hammer";
+			return "Go back";
 		}
 		else
 		{ 
-			return "Go back";
+			return "Pick up hammer";
 		}
 		
 	}
