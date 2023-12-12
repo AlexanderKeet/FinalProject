@@ -16,4 +16,27 @@ public class Items {
 			return "tableSawNo";
 		}
 	}
+	public String pickHammer()
+	{
+		if(haveHammer = true)
+		{
+			return "cantMove";
+		}
+		else
+		{
+			return "hammerGained";
+		}
+	}
+	public String hammerChoice()
+	{
+		if(haveHammer == false)
+		{
+			return "Pick up hammer";
+		}
+		else
+		{ 
+			return "Go back";
+		}
+		
+	}
 }

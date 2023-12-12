@@ -46,7 +46,7 @@ public class Screen{
 		theTitlePanel = new JPanel();
 		theTitlePanel.setBounds(50, 200, 380, 150);
 		theTitlePanel.setBackground(Color.gray);
-		theTitleLabel = new JLabel("WAKE UP");
+		theTitleLabel = new JLabel("youre waking up");
 		theTitleLabel.setForeground(Color.black);
 		theTitleLabel.setFont(titleFont);
 		//the start button

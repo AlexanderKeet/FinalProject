@@ -58,8 +58,8 @@ public class Words {
 	public void inspectWorkbench()
 	{
 		screen.mainTextArea.setText("upon looking closer at the workbench you see that there is 2 tools on the workbench, a hammer, and a huge table saw");
-		cListen.compEvents("hammerGained", items.tableSaw(), "", "", "", "");
-		screen.compChoice("pick up hammer", "useTableSaw", "", "", "", "");
+		cListen.compEvents(items.pickHammer(), items.tableSaw(), "", "", "", "");
+		screen.compChoice(items.hammerChoice(), "useTableSaw", "", "", "", "");
 		
 		
 	}
