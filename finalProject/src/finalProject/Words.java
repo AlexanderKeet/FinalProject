@@ -30,6 +30,10 @@ public class Words {
 			case "axeYes": axeYes(); break;
 			case "campfireOut": campfireOut(); break;
 			case "backingUp": backingUp(); break;
+			case "inspectCampfire2": inspectCampfire2(); break;
+			case "openCampfire": openCampfire(); break;
+			case "woodGained": woodGained(); break;
+			case "lookForward": lookForward(); break;
 		}
 	}
 	
@@ -52,7 +56,7 @@ public class Words {
 		screen.mainTextArea.setText("you look around the room, in front of you there is à door, to the left there seems to be an old workshop, to the right a fireplace, behind you an old painting back  where would you like to look?, \n what would you like to do?");
 		screen.compChoice("look left","look right","look forward","look behind you","","");
 		// add look up and down later on 
-		cListen.compEvents("lookLeft", "", "", "", "", "");
+		cListen.compEvents("lookLeft", "lookRight", "lookForward", "LookBehind", "", "");
 	}
 	
 	public void lookLeft()
@@ -113,7 +117,7 @@ public class Words {
 	{
 		screen.mainTextArea.setText("you decide to take a few secnonds to think and ponder of what to do next, when all of a sudden you realise that the fire might stop if you break the cord");
 		screen.compChoice("destroy the cord", "dont destroy the cord", "", "", "", "");
-		cListen.compEvents("", "inspectFireplace", "", "", "", "");
+		cListen.compEvents(items.hamaxe(), "inspectFireplace", "", "", "", "");
 	}
 	
 	public void axeNo()
@@ -142,7 +146,7 @@ public class Words {
 	{
 		screen.mainTextArea.setText("you realise its probabaly a good idea to go inspect the campfire because you might find something cool");
 		screen.compChoice(">", "", "", "", "", "");
-		cListen.compEvents("inspectCampfire", "", "", "", "", "");
+		cListen.compEvents("inspectCampfire2", "", "", "", "", "");
 	}
 	
 	public void inspectCampfire2()
@@ -164,6 +168,13 @@ public class Words {
 		items.haveWood = true;
 		screen.mainTextArea.setText("you got wood!!! you put it back in your pocket and continue on");
 		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("cantMove", "", "", "", "", "");
+	}
+	
+	public void lookForward()
+	{
+		screen.mainTextArea.setText("you look in the void, thinking about your life decisions thinkng of all the sadnes in life and why we even exist int the end we are alll but bones but we should still want to be happy even if it means going through sadness to be happy ");
+		screen.compChoice("go back", "", "", "", "", "");
 		cListen.compEvents("cantMove", "", "", "", "", "");
 	}
 	

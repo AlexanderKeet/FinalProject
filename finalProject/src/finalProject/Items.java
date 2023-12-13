@@ -5,6 +5,7 @@ public class Items {
 	public boolean haveHammer = false;
 	public boolean haveWood = false;
 	public boolean pulledCord = false;
+	public boolean haveAxe = false;
 	
 	public String tableSaw()
 	{
@@ -49,6 +50,17 @@ public class Items {
 		else
 		{
 			return "you see a fireplace, there is an immense amount of heat coming out of it, youre hands feel immensily warm even when youre stadning ten feet away from it, you feel like there coul be something useful in the fireplace";
+		}
+	}
+	public String hamaxe()
+	{
+		if(haveAxe = true)
+		{
+			return "axeYes";
+		}
+		else
+		{
+			return "axeNo";
 		}
 	}
 
