@@ -1,7 +1,7 @@
 package finalProject;
 
 public class Words {
-	
+	//change the color of the background in climax
 	Game game;
 	Screen screen;
 	ChoiceListener cListen;
@@ -177,6 +177,58 @@ public class Words {
 		screen.compChoice("go back", "", "", "", "", "");
 		cListen.compEvents("cantMove", "", "", "", "", "");
 	}
+	
+	public void lookBehind()
+	{
+		screen.mainTextArea.setText("you look behind you and you see a painting, described on this painting is a tree who is smiling, it cheers you up a little bit");
+		screen.compChoice("inspect the painting", "go back", "", "", "", "");
+		cListen.compEvents("inspectPainting", "cantMove", "", "", "", "");
+	}
+	public void inspectPainting()
+	{
+		screen.mainTextArea.setText("you look close at the is painting and you see that it is bolted into the wall with nails, very suspicious for painting to be bloted into the wall, \n there might be something behind this peinitng, you think to yourself");
+		screen.compChoice("unbolt the painting", "admiration", "", "", "", "");
+		cListen.compEvents(items.unboltPainting(), "", "", "", "", "");
+	}
+	
+	
+	public void admiration()
+	{
+		screen.mainTextArea.setText("you take a good look at the painting, it reminds you of your family at home and all of the good things life, you smile");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("inspect", "", "", "", "", "");
+	}
+	
+	public void hammerNo()
+	{
+		screen.mainTextArea.setText("you try to pull out the nails with your hands, but theyre really in there tight, youll need some sort of tool if youre ever gonna get these nails out");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("inspectPainting", "", "", "", "", "");
+	}
+	
+	public void hammerYes()
+	{
+		screen.mainTextArea.setText("you grab the pointy end of the hammer and you pull the nails out, one by one, the painting is now hanging of the wall with no support");
+		screen.compChoice("take off the painting", "", "", "", "", "");
+		cListen.compEvents("safe", "", "", "", "", "");
+	}
+	
+	public void safe()
+	{
+		screen.mainTextArea.setText("you tke the painting off the wall, and see a crevace where the painting used to be. in the cravace there is a 6 digit combination safe ");
+		screen.compChoice("try and guess the code", "", "", "", "", "");
+		cListen.compEvents("guessing", "", "", "", "", "");
+	}
+	
+	public void guessing()
+	{
+		screen.mainTextArea.setText("there is 6 different combinations you think might be right \n what do you pick?");
+		screen.compChoice("121499", "753300", "123456", "027227", "303248", items.bash());
+		cListen.compEvents("121499", "753300", "123456", "027227", "303248", items.goingCrazy());
+	}
+	
+	
+	
 	
 
 

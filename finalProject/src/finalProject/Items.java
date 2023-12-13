@@ -6,6 +6,11 @@ public class Items {
 	public boolean haveWood = false;
 	public boolean pulledCord = false;
 	public boolean haveAxe = false;
+	public boolean comb1 = false;
+	public boolean comb2 = false;
+	public boolean comb3 = false;
+	public boolean comb4 = false;
+	public boolean comb5 = false;
 	
 	public String tableSaw()
 	{
@@ -54,13 +59,46 @@ public class Items {
 	}
 	public String hamaxe()
 	{
-		if(haveAxe = true)
+		if(haveAxe == true)
 		{
 			return "axeYes";
 		}
 		else
 		{
 			return "axeNo";
+		}
+	}
+	public String unboltPainting()
+	{
+		if(haveHammer == true)
+		{
+			return "hammerYes";
+		}
+		else
+		{
+			return "hammerNo";
+		}
+	}
+	public String bash()
+	{
+		if((comb1 && comb2 && comb3 && comb4 && comb5) == true)
+		{
+			return "Hammer";
+		}
+		else
+		{
+			return "";
+		}
+	}
+	public String goingCrazy()
+	{
+		if((comb1 && comb2 && comb3 && comb4 && comb5) == true)
+		{
+			return "hammerBash";
+		}
+		else
+		{
+			return "";
 		}
 	}
 
