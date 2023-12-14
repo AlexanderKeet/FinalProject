@@ -34,6 +34,22 @@ public class Words {
 			case "openCampfire": openCampfire(); break;
 			case "woodGained": woodGained(); break;
 			case "lookForward": lookForward(); break;
+			case "lookBehind": lookBehind(); break;
+			case "inspectPainting": inspectPainting(); break;
+			case "admiration": admiration(); break;
+			case "hammerNo": hammerNo(); break;
+			case "hammerYes": hammerYes(); break;
+			case "safe": safe(); break;
+			case "guessing": guessing(); break;
+			case "nothingHappens": nothingHappens(); break;
+			case "c121499": c121499(); break;
+			case "c753300": c753300(); break;
+			case "c123456": c123456(); break;
+			case "c027227": c027227(); break;
+			case "c303248": c303248(); break;
+			case "hammerBash": hammerBash(); break;
+			case "lookInside": lookInside(); break;
+			case "axeObtained": axeObtained(); break;
 		}
 	}
 	
@@ -56,7 +72,7 @@ public class Words {
 		screen.mainTextArea.setText("you look around the room, in front of you there is à door, to the left there seems to be an old workshop, to the right a fireplace, behind you an old painting back  where would you like to look?, \n what would you like to do?");
 		screen.compChoice("look left","look right","look forward","look behind you","","");
 		// add look up and down later on 
-		cListen.compEvents("lookLeft", "lookRight", "lookForward", "LookBehind", "", "");
+		cListen.compEvents("lookLeft", "lookRight", "lookForward", "lookBehind", "", "");
 	}
 	
 	public void lookLeft()
@@ -71,8 +87,7 @@ public class Words {
 	{
 		screen.mainTextArea.setText("upon looking closer at the workbench you see that there is 2 tools on the workbench, a hammer, and a huge table saw");
 		screen.compChoice(items.hammerChoice(), "useTableSaw", "", "", "", "");
-		cListen.compEvents(items.pickHammer(), items.tableSaw(), "", "", "", "");
-		
+		cListen.compEvents(items.pickHammer(), items.tableSaw(), "", "", "", "");	
 	}
 
 
@@ -187,16 +202,16 @@ public class Words {
 	public void inspectPainting()
 	{
 		screen.mainTextArea.setText("you look close at the is painting and you see that it is bolted into the wall with nails, very suspicious for painting to be bloted into the wall, \n there might be something behind this peinitng, you think to yourself");
-		screen.compChoice("unbolt the painting", "admiration", "", "", "", "");
-		cListen.compEvents(items.unboltPainting(), "", "", "", "", "");
+		screen.compChoice("unbolt the painting", "admiration", "go back", "", "", "");
+		cListen.compEvents(items.unboltPainting(), "admiration", "cantMove", "", "", "");
 	}
 	
 	
 	public void admiration()
 	{
 		screen.mainTextArea.setText("you take a good look at the painting, it reminds you of your family at home and all of the good things life, you smile");
-		screen.compChoice(">", "", "", "", "", "");
-		cListen.compEvents("inspect", "", "", "", "", "");
+		screen.compChoice("inspect", "", "", "", "", "");
+		cListen.compEvents("inspectPainting", "lookBehind", "", "", "", "");
 	}
 	
 	public void hammerNo()
@@ -224,9 +239,73 @@ public class Words {
 	{
 		screen.mainTextArea.setText("there is 6 different combinations you think might be right \n what do you pick?");
 		screen.compChoice("121499", "753300", "123456", "027227", "303248", items.bash());
-		cListen.compEvents("121499", "753300", "123456", "027227", "303248", items.goingCrazy());
+		cListen.compEvents("c121499", "c753300", "c123456", "c027227", "c303248", items.goingCrazy());
 	}
 	
+	public void nothingHappens()
+	{
+		screen.mainTextArea.setText("Nothing Happens");
+		screen.compChoice("Try again", "", "", "", "", "");
+		cListen.compEvents("guessing", "", "", "", "", "");
+	}
+	
+	public void c121499()
+	{
+		screen.mainTextArea.setText("you turn the combo on the lock to 1.. 2.. 1.. 4.. 9.. 9..");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("nothingHappens", "", "", "", "", "");
+	}
+	
+	public void c753300()
+	{
+		screen.mainTextArea.setText("you turn the combo on the lock to 7.. 5.. 3.. 3.. 0.. 0..");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("nothingHappens", "", "", "", "", "");
+	}
+	
+	public void c123456()
+	{
+		screen.mainTextArea.setText("you turn the combo on the lock to 1.. 2.. 3.. 4.. 5.. 6..");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("nothingHappens", "", "", "", "", "");
+	}
+	
+	public void c027227()
+	{
+		screen.mainTextArea.setText("you turn the combo on the lock to 0.. 2.. 7.. 2.. 2.. 7..");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("nothingHappens", "", "", "", "", "");
+	}
+	
+	public void c303248()
+	{
+		screen.mainTextArea.setText("you turn the combo on the lock to 3.. 0.. 3.. 4.. 2.. 8..");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("nothingHappens", "", "", "", "", "");
+	}
+	
+	public void hammerBash()
+	{
+		screen.mainTextArea.setText("after realising that it will probably take a while to guess every single possible combination. you grab your hammer and smash the safe open CLONK CLONK CLONK CLONK!!!!");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("lookInside", "", "", "", "", "");
+	}
+	
+	public void lookInside()
+	{
+		screen.mainTextArea.setText("the safe is now all busted and on the floor, there is a big red fire Axe inside");
+		screen.compChoice("grab the axe", "", "", "", "", "");
+		cListen.compEvents("axeObtained", "", "", "", "", "");
+	}
+	
+	public void axeObtained()
+	{
+		screen.item2.setText("AXE");
+		items.haveAxe = true;
+		screen.mainTextArea.setText("you got an Axe!!");
+		screen.compChoice("yay", "", "", "", "", "");
+		cListen.compEvents("cantMove", "", "", "", "", "");
+	}
 	
 	
 	
