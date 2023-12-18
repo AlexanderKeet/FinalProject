@@ -11,6 +11,7 @@ public class Items {
 	public boolean comb3 = false;
 	public boolean comb4 = false;
 	public boolean comb5 = false;
+	public boolean haveKey = false;
 	
 	public String tableSaw()
 	{
@@ -110,6 +111,16 @@ public class Items {
 		else
 		{
 			return "lookBehind";
+		}
+	}
+	public String doorAttempt()
+	{
+		if(haveKey == true)
+		{
+			return "unlockDoor";
+		}
+		else {
+			return "locked";
 		}
 	}
 }

@@ -57,10 +57,15 @@ public class Words {
 	
 	//presets for all the combinations of text displayed on the screen and on the buttons
 	public void exampleText()
-	{	
+	{
+		
 		screen.mainTextArea.setText("");// sets the main text 
 		screen.compChoice("", "", "", "", "", "");//sets the text for all the buttons
 		cListen.compEvents("", "", "", "", "", "");//sets the next screen/event that screen will switch to when you click the button
+		
+		screen.mainTextArea.setText("");
+		screen.compChoice("", "", "", "", "", "");
+		cListen.compEvents("", "", "", "", "", "");
 	}
 	
 	public void wakeUp()
@@ -191,9 +196,9 @@ public class Words {
 	
 	public void lookForward()
 	{
-		screen.mainTextArea.setText("you look in the void, thinking about your life decisions thinkng of all the sadnes in life and why we even exist int the end we are alll but bones but we should still want to be happy even if it means going through sadness to be happy ");
-		screen.compChoice("go back", "", "", "", "", "");
-		cListen.compEvents("cantMove", "", "", "", "", "");
+		screen.mainTextArea.setText("you look forwards and there is a big metal locked door");
+		screen.compChoice("go back", " open the door", "", "", "", "");
+		cListen.compEvents("cantMove", items.doorAttempt(), "", "", "", "");
 	}
 	
 	public void lookBehind()
@@ -322,6 +327,29 @@ public class Words {
 		cListen.compEvents("cantMove", "", "", "", "", "");
 	}
 	
+	public void locked()
+	{
+		screen.mainTextArea.setText("you try to open the dorr but you quickly realise it doeant budge. must be locked");
+		screen.compChoice("go back", "", "", "", "", "");
+		cListen.compEvents("cantMove", "", "", "", "", "");
+	}
+	
+	public void unlockDoor()
+	{
+		screen.mainTextArea.setText("you place your key into thol keyhole...");
+		screen.compChoice("", "", "", "", "", "");
+		cListen.compEvents("", "", "", "", "", "");
+	}
+	
+	public void tableSawYes()
+	{
+		screen.mainTextArea.setText("you use the wood in the tableSaw");
+		screen.compChoice("", "", "", "", "", "");
+		cListen.compEvents("", "", "", "", "", "");
+	}
+	
+	
+
 	
 	
 
