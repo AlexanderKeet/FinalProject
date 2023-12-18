@@ -12,6 +12,7 @@ public class Words {
 		this.cListen = cListen;
 		
 	}
+	//makes it so when the text of the event is put into the function in return that function 
 	public void setEvent(String str)
 	{
 		switch(str)
@@ -50,14 +51,16 @@ public class Words {
 			case "hammerBash": hammerBash(); break;
 			case "lookInside": lookInside(); break;
 			case "axeObtained": axeObtained(); break;
+			case "lookBehindAftermath": lookBehindAftermath(); break;
 		}
 	}
 	
+	//presets for all the combinations of text displayed on the screen and on the buttons
 	public void exampleText()
-	{
-		screen.mainTextArea.setText("");
-		screen.compChoice("", "", "", "", "", "");
-		cListen.compEvents("", "", "", "", "", "");
+	{	
+		screen.mainTextArea.setText("");// sets the main text 
+		screen.compChoice("", "", "", "", "", "");//sets the text for all the buttons
+		cListen.compEvents("", "", "", "", "", "");//sets the next screen/event that screen will switch to when you click the button
 	}
 	
 	public void wakeUp()
@@ -72,7 +75,7 @@ public class Words {
 		screen.mainTextArea.setText("you look around the room, in front of you there is à door, to the left there seems to be an old workshop, to the right a fireplace, behind you an old painting back  where would you like to look?, \n what would you like to do?");
 		screen.compChoice("look left","look right","look forward","look behind you","","");
 		// add look up and down later on 
-		cListen.compEvents("lookLeft", "lookRight", "lookForward", "lookBehind", "", "");
+		cListen.compEvents("lookLeft", "lookRight", "lookForward", items.lookinBehind(), "", "");
 	}
 	
 	public void lookLeft()
@@ -138,8 +141,8 @@ public class Words {
 	public void axeNo()
 	{
 		screen.mainTextArea.setText("you pull and tug on the cord but it is to thick. youre going to need something sharp to cut the cord");
-		screen.compChoice("", "", "", "", "", "");
-		cListen.compEvents("", "", "", "", "", "");
+		screen.compChoice("go back", "", "", "", "", "");
+		cListen.compEvents("cantMove", "", "", "", "", "");
 	}
 	
 	public void axeYes()
@@ -251,6 +254,7 @@ public class Words {
 	
 	public void c121499()
 	{
+		items.comb1 =true;
 		screen.mainTextArea.setText("you turn the combo on the lock to 1.. 2.. 1.. 4.. 9.. 9..");
 		screen.compChoice(">", "", "", "", "", "");
 		cListen.compEvents("nothingHappens", "", "", "", "", "");
@@ -258,6 +262,7 @@ public class Words {
 	
 	public void c753300()
 	{
+		items.comb2 =true;
 		screen.mainTextArea.setText("you turn the combo on the lock to 7.. 5.. 3.. 3.. 0.. 0..");
 		screen.compChoice(">", "", "", "", "", "");
 		cListen.compEvents("nothingHappens", "", "", "", "", "");
@@ -265,6 +270,7 @@ public class Words {
 	
 	public void c123456()
 	{
+		items.comb3 =true;
 		screen.mainTextArea.setText("you turn the combo on the lock to 1.. 2.. 3.. 4.. 5.. 6..");
 		screen.compChoice(">", "", "", "", "", "");
 		cListen.compEvents("nothingHappens", "", "", "", "", "");
@@ -272,6 +278,7 @@ public class Words {
 	
 	public void c027227()
 	{
+		items.comb4 =true;
 		screen.mainTextArea.setText("you turn the combo on the lock to 0.. 2.. 7.. 2.. 2.. 7..");
 		screen.compChoice(">", "", "", "", "", "");
 		cListen.compEvents("nothingHappens", "", "", "", "", "");
@@ -279,6 +286,7 @@ public class Words {
 	
 	public void c303248()
 	{
+		items.comb5 =true;
 		screen.mainTextArea.setText("you turn the combo on the lock to 3.. 0.. 3.. 4.. 2.. 8..");
 		screen.compChoice(">", "", "", "", "", "");
 		cListen.compEvents("nothingHappens", "", "", "", "", "");
@@ -304,6 +312,13 @@ public class Words {
 		items.haveAxe = true;
 		screen.mainTextArea.setText("you got an Axe!!");
 		screen.compChoice("yay", "", "", "", "", "");
+		cListen.compEvents("cantMove", "", "", "", "", "");
+	}
+	
+	public void lookBehindAftermath()
+	{
+		screen.mainTextArea.setText("the painting and safe are all messed up on the floor after what you did to them not much reason to go look there");
+		screen.compChoice("alright", "", "", "", "", "");
 		cListen.compEvents("cantMove", "", "", "", "", "");
 	}
 	

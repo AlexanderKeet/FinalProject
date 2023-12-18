@@ -101,5 +101,15 @@ public class Items {
 			return "";
 		}
 	}
-
+	public String lookinBehind()
+	{
+		if(haveAxe == true)
+		{
+			return "lookBehindAftermath";	
+		}
+		else
+		{
+			return "lookBehind";
+		}
+	}
 }
