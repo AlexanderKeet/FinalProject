@@ -52,6 +52,11 @@ public class Words {
 			case "lookInside": lookInside(); break;
 			case "axeObtained": axeObtained(); break;
 			case "lookBehindAftermath": lookBehindAftermath(); break;
+			case "locked": locked(); break;
+			case "unlockDoor": unlockDoor(); break;
+			case "tableSawYes": tableSawYes(); break;
+			case "tableSawNext": tableSawNext(); break;
+			case "keyObtained": keyObtained(); break;
 		}
 	}
 	
@@ -188,6 +193,7 @@ public class Words {
 	
 	public void woodGained()
 	{
+		screen.item3.setText("Wood");
 		items.haveWood = true;
 		screen.mainTextArea.setText("you got wood!!! you put it back in your pocket and continue on");
 		screen.compChoice(">", "", "", "", "", "");
@@ -337,21 +343,37 @@ public class Words {
 	public void unlockDoor()
 	{
 		screen.mainTextArea.setText("you place your key into thol keyhole...");
-		screen.compChoice("", "", "", "", "", "");
-		cListen.compEvents("", "", "", "", "", "");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("keyNext", "", "", "", "", "");
 	}
 	
 	public void tableSawYes()
 	{
-		screen.mainTextArea.setText("you use the wood in the tableSaw");
-		screen.compChoice("", "", "", "", "", "");
-		cListen.compEvents("", "", "", "", "", "");
+		screen.mainTextArea.setText("you use the wood on the tableSaw");
+		screen.compChoice(">", "", "", "", "", "");
+		cListen.compEvents("tableSawNext", "", "", "", "", "");
+	}
+	
+	public void tableSawNext()
+	{
+		screen.mainTextArea.setText("you remeber that you are a proffesional carpenter you carefully carve the wood perfectly into a key");
+		screen.compChoice("grab the key", "", "", "", "", "");
+		cListen.compEvents("keyObtained", "", "", "", "", "");
+	}
+	
+	public void keyObtained()
+	{
+		items.haveKey = true;
+		screen.item4.setText("Key");
+		screen.mainTextArea.setText("YOU PICKED UP A KEY!!");
+		screen.compChoice("go back ", "", "", "", "", "");
+		cListen.compEvents("cantMove", "", "", "", "", "");
+	}
+	
+	public void keyNext()
+	{
+		
 	}
 	
 	
-
-	
-	
-
-
 }
