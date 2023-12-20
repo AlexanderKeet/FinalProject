@@ -411,5 +411,12 @@ public class Words {
 		cListen.compEvents("leftStep", "", "", "", "", "");
 	}
 	
+	public void topOfStairs()
+	{
+		screen.mainTextArea.setText("YOU REAChed THE TOP!!! after all those steps you are exhausted");
+		screen.compChoice("look around", "", "", "", "", "");
+		cListen.compEvents("", "", "", "", "", "");
+	}
+	
 	
 }

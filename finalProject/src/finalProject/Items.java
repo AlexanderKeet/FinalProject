@@ -127,7 +127,7 @@ public class Items {
 	
 	public String stepOrStop()
 	{
-		if(stepCount >= 20)
+		if(stepCount >= 10)
 		{
 			return "topOfStairs";
 		}
@@ -136,4 +136,6 @@ public class Items {
 			return "rightStep";
 		}
 	}
+	
+	
 }
