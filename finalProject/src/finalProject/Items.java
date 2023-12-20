@@ -12,6 +12,7 @@ public class Items {
 	public boolean comb4 = false;
 	public boolean comb5 = false;
 	public boolean haveKey = false;
+	public int stepCount = 0;
 	
 	public String tableSaw()
 	{
@@ -121,6 +122,18 @@ public class Items {
 		}
 		else {
 			return "locked";
+		}
+	}
+	
+	public String stepOrStop()
+	{
+		if(stepCount >= 20)
+		{
+			return "topOfStairs";
+		}
+		else
+		{
+			return "rightStep";
 		}
 	}
 }

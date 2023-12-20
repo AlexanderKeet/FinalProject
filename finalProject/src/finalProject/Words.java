@@ -57,6 +57,11 @@ public class Words {
 			case "tableSawYes": tableSawYes(); break;
 			case "tableSawNext": tableSawNext(); break;
 			case "keyObtained": keyObtained(); break;
+			case "keyNext": keyNext(); break;
+			case "twist": twist(); break;
+			case "upTheStairs": upTheStairs(); break;
+			case "leftStep": leftStep(); break;
+			case "rightStep": rightStep(); break;
 		}
 	}
 	
@@ -372,7 +377,38 @@ public class Words {
 	
 	public void keyNext()
 	{
-		
+		screen.mainTextArea.setText("you put the wooden key inside and it suprisingly is a perfect fit");
+		screen.compChoice("twist the key", "", "", "", "", "");
+		cListen.compEvents("twist", "", "", "", "", "");
+	}
+
+	public void twist()
+	{
+		screen.mainTextArea.setText("TWIST POP the door Opens. it leads to a dimly lit staircase leading upwards, you arent sure whether or not you would like to go or not");
+		screen.compChoice("go up", "Stay down", "", "", "", "");
+		cListen.compEvents("upTheStairs", "cantMove", "", "", "", "");
+	}
+	
+	public void upTheStairs()
+	{
+		screen.mainTextArea.setText("you creak each step one by one by one, there are 20 steps");
+		screen.compChoice("Start walking", "", "", "", "", "");
+		cListen.compEvents("rightStep", "", "", "", "", "");
+	}
+	
+	public void leftStep()
+	{
+		items.stepCount++;
+		screen.mainTextArea.setText("you take a left step");
+		screen.compChoice("", "take a right step", "", "", "", "");
+		cListen.compEvents("", items.stepOrStop(), "", "", "", "");
+	}
+	
+	public void rightStep()
+	{
+		screen.mainTextArea.setText("you take a right Step");
+		screen.compChoice("take a left step", "", "", "", "", "");
+		cListen.compEvents("leftStep", "", "", "", "", "");
 	}
 	
 	
