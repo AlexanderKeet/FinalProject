@@ -62,6 +62,8 @@ public class Words {
 			case "upTheStairs": upTheStairs(); break;
 			case "leftStep": leftStep(); break;
 			case "rightStep": rightStep(); break;
+			case "topOfStairs": topOfStairs(); break;
+			case "toBeContinued": toBeContinued(); break;
 		}
 	}
 	
@@ -69,9 +71,9 @@ public class Words {
 	public void exampleText()
 	{
 		
-		screen.mainTextArea.setText("");// sets the main text 
-		screen.compChoice("", "", "", "", "", "");//sets the text for all the buttons
-		cListen.compEvents("", "", "", "", "", "");//sets the next screen/event that screen will switch to when you click the button
+		screen.mainTextArea.setText(""); // sets the main text 
+		screen.compChoice("", "", "", "", "", ""); //sets the text for all the buttons
+		cListen.compEvents("", "", "", "", "", ""); //sets the next screen/event that screen will switch to when you click the button
 		
 		screen.mainTextArea.setText("");
 		screen.compChoice("", "", "", "", "", "");
@@ -414,8 +416,13 @@ public class Words {
 	public void topOfStairs()
 	{
 		screen.mainTextArea.setText("YOU REAChed THE TOP!!! after all those steps you are exhausted");
-		screen.compChoice("look around", "", "", "", "", "");
-		cListen.compEvents("", "", "", "", "", "");
+		screen.compChoice("...", "", "", "", "", "");
+		cListen.compEvents("toBeContinued", "", "", "", "", "");
+	}
+	
+	public void toBeContinued()
+	{
+		screen.mainTextArea.setText("TO BE CONTINUED");
 	}
 	
 	

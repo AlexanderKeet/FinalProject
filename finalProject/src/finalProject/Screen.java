@@ -28,7 +28,7 @@ public class Screen{
 	Font bagFont = new Font("Times new roman", Font.PLAIN, 15);
 	Game game;
 	Words words;
-	
+	Color beige = new Color(255,215,160);
 	
 	public void theScreen(ChoiceListener cListen)
 	{
@@ -36,7 +36,7 @@ public class Screen{
 		window = new JFrame();
 		window.setSize(500,700);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.getContentPane().setBackground(Color.gray);
+		window.getContentPane().setBackground(beige);
 		window.setLayout(null);
 		window.setResizable(false);
 		con = window.getContentPane();
@@ -45,17 +45,17 @@ public class Screen{
 		//the title Screen
 		theTitlePanel = new JPanel();
 		theTitlePanel.setBounds(50, 200, 380, 150);
-		theTitlePanel.setBackground(Color.gray);
-		theTitleLabel = new JLabel("youre waking up");
+		theTitlePanel.setBackground(beige);
+		theTitleLabel = new JLabel("Start");
 		theTitleLabel.setForeground(Color.black);
 		theTitleLabel.setFont(titleFont);
 		//the start button
 		startButtonPanel = new JPanel();
 		startButtonPanel.setBounds(150, 400, 200, 100);
-		startButtonPanel.setBackground(Color.gray);
+		startButtonPanel.setBackground(beige);
 				
 		startButton = new JButton("Start");
-		startButton.setBackground(Color.gray);
+		startButton.setBackground(beige);
 		startButton.setForeground(Color.black);
 		startButton.addActionListener(cListen);
 		startButton.setActionCommand("startButton");
@@ -70,7 +70,7 @@ public class Screen{
 		//gameScreen
 		mainTextPanel = new JPanel();
 		mainTextPanel.setBounds(20, 80, 450, 220);
-		mainTextPanel.setBackground(Color.gray);
+		mainTextPanel.setBackground(beige);
 		con.add(mainTextPanel);
 		
 		mainTextArea = new JTextArea("blabla");
@@ -84,7 +84,7 @@ public class Screen{
 		//choice buttons
 		choiceButtonPanel = new JPanel();
 		choiceButtonPanel.setBounds(10,325,465,325);
-		choiceButtonPanel.setBackground(Color.gray);
+		choiceButtonPanel.setBackground(beige);
 		choiceButtonPanel.setLayout(new GridLayout(3,2,5,5));
 		con.add(choiceButtonPanel);
 		choice1 = choiceButton(cListen);
@@ -102,7 +102,7 @@ public class Screen{
 		//bag
 		bagPanel = new JPanel();
 		bagPanel.setBounds(20,15,465,40);
-		bagPanel.setBackground(Color.gray);
+		bagPanel.setBackground(beige);
 		bagPanel.setLayout(new GridLayout(1,6));
 		con.add(bagPanel);
 		bagLabel = itemsLabel();
@@ -121,16 +121,16 @@ public class Screen{
 		line2 = new JPanel();
 		line1.setBounds(0, 50, 500, 20);
 		line2.setBounds(0, 301, 500, 20);
-		line1.setBackground(Color.gray);
-		line2.setBackground(Color.gray);
+		line1.setBackground(beige);
+		line2.setBackground(beige);
 		line1.setForeground(Color.black);
 		line2.setForeground(Color.black);
 		con.add(line1);
 		con.add(line2);
 		line1Label = new JTextArea("------------------------------------------------------------------------------------------");
 		line2Label = new JTextArea("------------------------------------------------------------------------------------------");
-		line1Label.setBackground(Color.gray);
-		line2Label.setBackground(Color.gray);
+		line1Label.setBackground(beige);
+		line2Label.setBackground(beige);
 		line1Label.setFont(regularFont);
 		line2Label.setFont(regularFont);
 		line1.add(line1Label);
