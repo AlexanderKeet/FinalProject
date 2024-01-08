@@ -441,8 +441,17 @@ public class Words {
 	public void response()
 	{
 		screen.mainTextArea.setText("the old man doesnt reply to your response, so you immediately assume he is your kidnapper \n\n What will you use to attack?");
-		screen.compChoice("", "", "", "", "", "");
-		cListen.compEvents("", "", "", "", "", "");
+		screen.compChoice("Hammer", "Axe", "Wood", "Key", items.gGold(), "" );
+		cListen.compEvents("lastHammer", "lastAxe", "lastWood", "lastKey",items.gold(), "");
+	}
+	
+	public void lastHammer()
+	{
+		
+		items.haveHammer = false;
+		screen.mainTextArea.setText("you throw your axe, directly at the old man. but unfortunaty the old man dodges it");
+		screen.compChoice("try somethine else", "", "", "", "", "");
+		cListen.compEvents("response", "", "", "", "", "");
 	}
 
 	

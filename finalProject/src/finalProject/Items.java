@@ -147,5 +147,100 @@ public class Items {
 			return "nothing";
 		}
 	}
+	public String gold()
+	{
+		if(treasure == true)
+		{
+			return "gold";
+		}
+		else
+		{
+			return "backToStart";
+		}
+	}
+	
+	public String gGold()
+	{
+		if(treasure == true)
+		{
+			return "Gold";
+		}
+		else
+		{
+			return "";
+		}
+	}
+	public String hHammer()
+	{
+		if(haveHammer == true)
+		{
+			return "lastHammer";
+		}
+		else 
+		{
+			return "";
+		}
+	}
+	
+	public String hhammer()
+	{
+		if(haveHammer == true)
+		{
+			return "Hammer";
+		}
+		else 
+		{
+			return "";
+		}
+	}
+	
+	public String aAxe()
+	{
+		if(haveAxe == true)
+		{
+			return "lastAxe";
+		}
+		else 
+		{
+			return "";
+		}
+	}
+	
+	public String aaxe()
+	{
+		if(haveAxe == true)
+		{
+			return "Axe";
+		}
+		else 
+		{
+			return "";
+		}
+	}
+	
+	public String wWood()
+	{
+		if(haveWood == true)
+		{
+			return "lastWood";
+		}
+		else 
+		{
+			return "";
+		}
+	}
+	
+	public String wwood()
+	{
+		if(haveWood == true)
+		{
+			return "Wood";
+		}
+		else 
+		{
+			return "";
+		}
+	}
+	
 	
 }
