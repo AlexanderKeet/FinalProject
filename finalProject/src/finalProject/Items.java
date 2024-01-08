@@ -13,6 +13,7 @@ public class Items {
 	public boolean comb5 = false;
 	public boolean haveKey = false;
 	public int stepCount = 0;
+	public boolean treasure = false;
 	
 	public String tableSaw()
 	{
@@ -48,16 +49,15 @@ public class Items {
 		}
 		
 	}
-	public String switchTurnedOn()
-	{
-		if(pulledCord == true)
-		{
-			return "you see a fireplace but there is no fire coming from it, nothing of use seeems to be in there";
-		}
-		else
-		{
-			return "you see a fireplace, there is an immense amount of heat coming out of it, youre hands feel immensily warm even when youre stadning ten feet away from it, you feel like there coul be something useful in the fireplace";
-		}
+	public String switchTurnedOn() {
+	    if (pulledCord == true) 
+	    {
+	        return "secretRoute";
+	    } 
+	    else 
+	    {
+	        return "You see a fireplace. There is an immense amount of heat coming out of it. Your hands feel immensely warm even when you're standing ten feet away from it. You feel like there could be something useful in the fireplace.";
+	    }
 	}
 	public String hamaxe()
 	{
@@ -136,6 +136,16 @@ public class Items {
 			return "rightStep";
 		}
 	}
-	
+	public String hatch() {
+		// TODO Auto-generated method stub
+		if(treasure == false)
+		{
+			return "secretRoom";
+		}
+		else
+		{
+			return "nothing";
+		}
+	}
 	
 }
