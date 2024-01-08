@@ -1,5 +1,7 @@
 package finalProject;
 
+import java.awt.Color;
+
 public class Words {
 	//change the color of the background in climax
 	Game game;
@@ -146,6 +148,8 @@ public class Words {
 		screen.mainTextArea.setText("without thinking you put your hands in the fireplace, which is burning hot, your hands burn to crisp for a few seconds before you quickly pull them out, realizing your mistake");
 		screen.compChoice(">", "", "", "", "", "");
 		cListen.compEvents("inspectFireplace", "", "", "", "", "");
+		
+		
 	}
 	
 	public void thinking()

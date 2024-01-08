@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.BevelBorder;
 
 
 public class Screen{
@@ -28,8 +29,11 @@ public class Screen{
 	Font bagFont = new Font("Times new roman", Font.PLAIN, 15);
 	Game game;
 	Words words;
-	Color beige = new Color(255,215,160);
+	Color beige = new Color(255,230,179);
+	Color lightBeige = new Color(255,238,153);
 	
+	
+	// cListen is the trigger to activating a button, it will set off when its action command is called in ChoiceListener
 	public void theScreen(ChoiceListener cListen)
 	{
 		//the window 
@@ -49,13 +53,14 @@ public class Screen{
 		theTitleLabel = new JLabel("Start");
 		theTitleLabel.setForeground(Color.black);
 		theTitleLabel.setFont(titleFont);
+		
 		//the start button
 		startButtonPanel = new JPanel();
 		startButtonPanel.setBounds(150, 400, 200, 100);
 		startButtonPanel.setBackground(beige);
 				
 		startButton = new JButton("Start");
-		startButton.setBackground(beige);
+		startButton.setBackground(lightBeige);
 		startButton.setForeground(Color.black);
 		startButton.addActionListener(cListen);
 		startButton.setActionCommand("startButton");
@@ -75,7 +80,7 @@ public class Screen{
 		
 		mainTextArea = new JTextArea("blabla");
 		mainTextArea.setBounds(20, 80, 450, 220);
-		mainTextArea.setBackground(Color.gray);
+		mainTextArea.setBackground(beige);
 		mainTextArea.setForeground(Color.black);
 		mainTextArea.setFont(regularFont);
 		mainTextArea.setLineWrap(true);
@@ -168,13 +173,14 @@ public class Screen{
 	public JButton choiceButton(ChoiceListener c){
 		JButton button;
 	    button = new JButton();
-	    button.setBackground(Color.darkGray);
+	    button.setBackground(lightBeige);
 	    button.setForeground(Color.black);
 	    button.setFont(regularFont);
 	    button.setFocusPainted(false);
 	    button.setContentAreaFilled(false);
 	    button.setBorderPainted(false);
 	    button.addActionListener(c);
+	    button.setBorder(new BevelBorder(BevelBorder.RAISED));
 	    choiceButtonPanel.add(button);
 	    return button;
 	}
@@ -267,6 +273,20 @@ public class Screen{
 				choice6.setText(f);
 			}
 
+	}
+	//changes the color of everything exept buttons to rgb value
+	public void colorChange(int a, int b, int c)
+	{
+		mainTextArea.setBackground(new Color(a,b,c));
+		theTitlePanel.setBackground(new Color(a,b,c));
+		startButtonPanel.setBackground(new Color(a,b,c));
+		mainTextPanel.setBackground(new Color(a,b,c));
+		choiceButtonPanel.setBackground(new Color(a,b,c));
+		line1.setBackground(new Color(a,b,c));
+		line2.setBackground(new Color(a,b,c));
+		line1.setBackground(new Color(a,b,c));
+		line2.setBackground(new Color(a,b,c));
+		bagPanel.setBackground(new Color(a,b,c));
 	}
 	
 
