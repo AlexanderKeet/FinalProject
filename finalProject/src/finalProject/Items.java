@@ -167,7 +167,7 @@ public class Items {
 		}
 		else
 		{
-			return "";
+			return "Give Up";
 		}
 	}
 	public String hHammer()
@@ -242,5 +242,28 @@ public class Items {
 		}
 	}
 	
+	public String kKey()
+	{
+		if(haveKey == true)
+		{
+			return "lastKey";
+		}
+		else 
+		{
+			return "";
+		}
+	}
+	
+	public String kkey()
+	{
+		if(haveKey == true)
+		{
+			return "Key";
+		}
+		else 
+		{
+			return "";
+		}
+	}
 	
 }

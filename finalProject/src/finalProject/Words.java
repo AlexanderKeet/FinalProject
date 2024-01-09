@@ -65,6 +65,25 @@ public class Words {
 			case "leftStep": leftStep(); break;
 			case "rightStep": rightStep(); break;
 			case "topOfStairs": topOfStairs(); break;
+			case "secretRoute": secretRoute(); break;
+			case "nothing": nothing(); break;
+			case "secretRoom": secretRoom(); break;
+			case "enterSecretRoom": enterSecretRoom(); break;
+			case "openTreasureSchest": openTreasureChest(); break;
+			case "treasureObtained": treasureObtained(); break;
+			case "walk": walk(); break;
+			case "run": run(); break;
+			case "ohNo": ohNo(); break;
+			case "response": response(); break;
+			case "response2": response2(); break;
+			case "lastHammer": lastHammer(); break;
+			case "lastAxe": lastAxe(); break;
+			case "lastWood": lastWood(); break;
+			case "lastKey": lastKey(); break;
+			case "lastGold": lastGold(); break;
+			case "backToStart": backToStart(); break;
+			case "end": end(); break;
+			case "backToStartMenu": backToStart(); break;
 
 		}
 	}
@@ -338,7 +357,7 @@ public class Words {
 	    screen.item2.setText("Axe");
 	    items.haveAxe = true;
 	    screen.mainTextArea.setText("You got an axe!!");
-	    screen.compChoice("Yay", "", "", "", "", "");
+	    screen.compChoice("Put it in your pocket", "", "", "", "", "");
 	    cListen.compEvents("cantMove", "", "", "", "", "");
 	}
 
@@ -433,26 +452,102 @@ public class Words {
 	
 	public void ohNo()
 	{
-		screen.mainTextArea.setText("suprisingly the door actually opens, but when it does you are greeted by an old man \n\n <<HELLO>> says the old man");
+		screen.mainTextArea.setText("Suprisingly the door actually opens, but when it does you are greeted by an old man \n\n <<HELLO>> says the old man");
 		screen.compChoice("Hi","hows it going?", "who are you?", "get out of my way", "Are you my kidnapper?", "say nothing");
 		cListen.compEvents("response", "response", "response", "response", "response", "response");
 	}
 	
 	public void response()
 	{
-		screen.mainTextArea.setText("the old man doesnt reply to your response, so you immediately assume he is your kidnapper \n\n What will you use to attack?");
-		screen.compChoice("Hammer", "Axe", "Wood", "Key", items.gGold(), "" );
-		cListen.compEvents("lastHammer", "lastAxe", "lastWood", "lastKey",items.gold(), "");
+		screen.mainTextArea.setText("The old man doesnt reply to your response, so you immediately assume he is your kidnapper \n\n What will you use to attack?");
+		screen.compChoice(items.hhammer(), items.aaxe(), items.wwood(), items.kkey(), items.gGold(), "" );
+		cListen.compEvents(items.hHammer(), items.aAxe(),items.wWood(),  items.kKey() ,items.gold(), "");
+	}
+	
+	public void response2()
+	{
+		screen.mainTextArea.setText("The old man is slowly walking towards you");
+		screen.compChoice(items.hhammer(), items.aaxe(), items.wwood(), items.kkey(), items.gGold(), "" );
+		cListen.compEvents(items.hHammer(), items.aAxe(),items.wWood(),  items.kKey() ,items.gold(), "");
 	}
 	
 	public void lastHammer()
 	{
 		
 		items.haveHammer = false;
-		screen.mainTextArea.setText("you throw your axe, directly at the old man. but unfortunaty the old man dodges it");
+		screen.mainTextArea.setText("you throw your Hammer, directly at the old man. but unfortunaty the old man dodges it");
 		screen.compChoice("try somethine else", "", "", "", "", "");
-		cListen.compEvents("response", "", "", "", "", "");
+		cListen.compEvents("response2", "", "", "", "", "");
 	}
+	
+	public void lastAxe()
+	{
+		
+		items.haveAxe = false;
+		screen.mainTextArea.setText("you throw your Axe, directly at the old man. but unfortunaty the old man catches it and throws it aside");
+		screen.compChoice("try somethine else", "", "", "", "", "");
+		cListen.compEvents("response2", "", "", "", "", "");
+	}
+	
+	public void lastWood()
+	{
+		
+		items.haveWood = false;
+		screen.mainTextArea.setText("you throw your leftover wood chips, directly at the old man. it doesnt do much...");
+		screen.compChoice("try somethine else", "", "", "", "", "");
+		cListen.compEvents("response2", "", "", "", "", "");
+	}
+	
+	public void lastKey()
+	{
+		
+		items.haveKey = false;
+		screen.mainTextArea.setText("you throw your key, directly at the old man. it hits him right in the head, he seems angry now");
+		screen.compChoice("try somethine else", "", "", "", "", "");
+		cListen.compEvents("response2", "", "", "", "", "");
+	}
+	
+	public void lastGold()
+	{
+		
+		screen.mainTextArea.setText("you empty your pockets off all the treasure you collected earlier, and kick it everywhere. The old man very suprised looks suprised and rushes to pick up all of it. \n <<Hey thats my treasure!!!>> Says the old man. \n He seems very distracted.  ");
+		screen.compChoice("Walk right past him", "", "", "", "", "");
+		cListen.compEvents("end", "", "", "", "", "");
+	}
+	
+	public void backToStart()
+	{
+		items.haveHammer = false;
+		items.haveWood = false;
+		items.pulledCord = false;
+		items.haveAxe = false;
+		items.comb1 = false;
+		items.comb2 = false;
+		items.comb3 = false;
+		items.comb4 = false;
+		items.comb5 = false;
+		items.haveKey = false;
+		items.stepCount = 0;
+		items.treasure = false;
+		screen.mainTextArea.setText("you give youself up to the old man, he brings you back into the house down the stairs and into the locked room, and then whacks you on the head. \n\n You lose consiousness and forget everything");
+		screen.compChoice("Wake up", "", "", "", "", "");
+		cListen.compEvents("wakeUp", "", "", "", "", "");
+	}
+	
+	public void end()
+	{
+		screen.mainTextArea.setText("While the man is busy collecting his treasure, you walk right past him, to sweet freedom \n\n                  THE END");
+		screen.compChoice("Go Back", "", "", "", "", "");
+		cListen.compEvents("backToStartMenu", "", "", "", "", "");
+	}
+	
+	public void backToStartMenu()
+	{
+		new Game();
+	}
+	
+	
+
 
 	
 	
