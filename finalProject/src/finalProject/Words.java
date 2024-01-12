@@ -84,6 +84,7 @@ public class Words {
 			case "backToStart": backToStart(); break;
 			case "end": end(); break;
 			case "backToStartMenu": backToStart(); break;
+			case "exampleText": exampleText(); break;
 
 		}
 	}
@@ -92,19 +93,19 @@ public class Words {
 	public void exampleText()
 	{
 		
-		screen.mainTextArea.setText(""); // sets the main text 
-		screen.compChoice("", "", "", "", "", ""); //sets the text for all the buttons
-		cListen.compEvents("", "", "", "", "", ""); //sets the next screen/event that screen will switch to when you click the button
-		
-		screen.mainTextArea.setText("");
-		screen.compChoice("", "", "", "", "", "");
-		cListen.compEvents("", "", "", "", "", "");
+		screen.mainTextArea.setText("Main text"); // sets the main text 
+		screen.compChoice("button1", "button2", "button3", "button4", "button5", "button6"); //sets the text for all the buttons
+		cListen.compEvents("a", "a", "a", "a", "a", "a"); //sets the next screen/event that screen will switch to when you click the button
+		screen.item1.setText("item1");
+		screen.item2.setText("item2");
+		screen.item3.setText("item3");
+		screen.item4.setText("item4");
 	}
 	
 	public void wakeUp() {
 	    screen.mainTextArea.setText("You slowly open your eyes, finding yourself on the cold hard floor. The room is dimly lit, with a unfinished cement floor. You dont remember how you got here and you feel like you should get out \n\nWhat would you like to do?");
-	    screen.compChoice("Move your limbs", "", "", "", "", "");
-	    cListen.compEvents("cantMove", "", "", "", "", "");
+	    screen.compChoice("Move your limbs", "test", "", "", "", "");
+	    cListen.compEvents("cantMove", "exampleText", "", "", "", "");
 	}
 
 	public void cantMove() {
@@ -117,7 +118,7 @@ public class Words {
 	public void lookLeft() {
 	    screen.mainTextArea.setText("You walk towards a workbench, a small brown table with a bunch of tools on it.");
 	    screen.compChoice("Inspect Workbench", "Go Back", "", "", "", "");
-	    cListen.compEvents("inspectWorkbench", "oldMansEntrance", "", "", "", "");
+	    cListen.compEvents("inspectWorkbench", "cantMove", "", "", "", "");
 	}
 
 	public void inspectWorkbench() {

@@ -86,6 +86,7 @@ public class Screen{
 		mainTextArea.setLineWrap(true);
 		mainTextArea.setWrapStyleWord(true);
 		mainTextPanel.add(mainTextArea);
+		mainTextArea.setEditable(false);
 		//choice buttons
 		choiceButtonPanel = new JPanel();
 		choiceButtonPanel.setBounds(10,325,465,325);
